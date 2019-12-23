@@ -1,0 +1,12 @@
+C:\Users\79153\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\193.5233.144\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\79153\shared_ptr
+CMake Error at CMakeLists.txt:14 (include):
+  include could not find load file:
+
+    tools/gate/cmake/HunterGate.cmake
+
+
+CMake Error at CMakeLists.txt:16 (HunterGate):
+  Unknown CMake command "HunterGate".
+
+
+-- Configuring incomplete, errors occurred!

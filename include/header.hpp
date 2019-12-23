@@ -8,11 +8,9 @@
 #include <map>
 #include <stdint.h>
 #include <utility>
-
 using std::int64_t;
 using std::atomic_size_t;
 using std::map;
-
 using std::cout;
 template <typename T>
 class SharedPtr {
@@ -22,10 +20,10 @@ public:
 explicit  SharedPtr(T* ptr)
     {
         _adress = ptr;
-        if (_adresses.find(reinterpret_cast<int64_t>(ptr)) != _adresses.end())
+        if (_adresses.find(reinterpret_cast<int64_t>(ptr)) != _adresses.end()) //if находит в map то увл.
         {++_adresses[reinterpret_cast<int64_t>(ptr)];}
         else
-        {_adresses.insert({reinterpret_cast<int64_t>(ptr), 1});}
+        {_adresses.insert({reinterpret_cast<int64_t>(ptr), 1});}//если не находит, то увеличивает уол-во на 1
     };
 explicit  SharedPtr(const SharedPtr& r)
 {_adress = r._adress; ++_adresses[reinterpret_cast<int64_t>(_adress)];}
@@ -40,7 +38,7 @@ explicit  SharedPtr(const SharedPtr& r)
         }
     }
 SharedPtr(SharedPtr&& r )
-{_adress = r._adress; r._adress = nullptr;}
+{_adress = r._adress; r._adress = nullptr;}//предыдущий затирает , а в новый закидывает
    auto operator=(SharedPtr& r) -> SharedPtr&
    {
        if (_adress)
